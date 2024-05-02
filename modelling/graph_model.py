@@ -5,6 +5,8 @@ from torch_geometric.nn.models import GIN
 
 from torch.nn import Conv1d, LSTM
 
+# from grad_explain import integrated_gradients
+
 def calculate_output_length(input_length, kernel_size, stride, padding=0, dilation=1):
     output_length = ((input_length + 2 * padding - dilation * (kernel_size - 1) - 1) // stride) + 1
     return output_length
@@ -101,7 +103,7 @@ class TempGNN(torch.nn.Module):
             x = self.readout(x)
         
         return x
-    
+
 if __name__ == "__main__":
     # Test the TempGNN model
     model = TempGNN(input_length=100)
@@ -110,3 +112,28 @@ if __name__ == "__main__":
                                 [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]])
     out = model(x, edge_index)
     print(out.size())
+
+    # baseline = torch.zeros_like(x)
+    # ig = integrated_gradients(x, edge_index, baseline, model)
+    # print(ig.size())
+
+    # ig = ig.detach().numpy()
+
+    # import matplotlib.pyplot as plt
+    # import numpy as np
+
+    # importance = np.abs(ig)
+    # threshold = 0
+    # important_points = importance > np.max(importance) * threshold
+    # plt.figure(figsize=(10, 5))
+    # plt.plot(x[0][0], label='Contribution', marker='o')
+    # print(important_points.shape)
+    # print(np.where(important_points[0])[0])
+    # plt.scatter(np.where(important_points[0])[0], x[0,0][important_points[0]], color='red', label='Important Points')  # Visualize the important points
+    # plt.title('Contribution')
+    # plt.xlabel('Time Steps')
+    # plt.ylabel('Contribution Value')
+    # plt.grid(True)
+    # plt.legend()
+    # plt.show()
+    # plt.savefig('contribution.png')
