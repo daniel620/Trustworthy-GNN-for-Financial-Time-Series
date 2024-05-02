@@ -24,9 +24,9 @@ project-root/
 ├── README.md
 └── ...
 ```
-### Upload to Google Drive
+### Running on Google Colab
 
-Then upload these files to Google Drive in the `/content/drive/MyDrive/Colab Notebooks/winter24-project/TrustProAuto-team-main/` directory. If you prefer a different location, update the path accordingly in the first cell of `train.ipynb`.
+Upload these files to Google Drive in the `/content/drive/MyDrive/Colab Notebooks/winter24-project/TrustProAuto-team-main/` directory. If you prefer a different location, update the path accordingly in the first cell of the notebook.
 
 The experiments in this project are designed to be run on Google Colab. All the required dependencies should be satisfied or installed by running the notebook. 
 
@@ -35,9 +35,11 @@ The main files are:
 - `train.ipynb`: Main script to run the experiment, including constructing graph, analyzing sparsity, training graph neural networks, and explaining the output. 
 - `dataset_analysis.ipynb`: Script to analyze the dataset, including trend plot, stationarity test, stationarization using log differencing, correlation matrix, mutual information and time lagged analysis.
 
-## Dependencies
+### Running Locally
 
-To ensure the project runs correctly, please install the following Python packages using `pip`:
+#### Dependencies
+
+Please install the following Python packages:
 
 ```bash
 pip install graphviz==0.20.1 \
@@ -48,7 +50,7 @@ pip install graphviz==0.20.1 \
              pandas==1.3.5 \
              scikit_learn==1.3.0
 ```
-For installing `torch` and `torch_geometric`, which have specific platform-dependent installation procedures, please refer to the official installation guides:
+To install `torch` and `torch_geometric`, which have specific platform-dependent installation procedures, please refer to the official guides:
 - [`torch`](https://pytorch.org/get-started/locally/) -  `torch==2.0.1`
 - [`torch_geometric`](https://pytorch-geometric.readthedocs.io/en/latest/notes/installation.html) - `torch_geometric==2.3.1`
 
