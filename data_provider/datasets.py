@@ -26,8 +26,8 @@ class TSDataset(Dataset):
 class SP500Dataset:
     def __init__(self):
 
-        sp500_price_df = pd.read_csv('Datasets/sp500/sp500_index.csv', index_col='Date')
-        stocks_price_df = pd.read_csv('Datasets/sp500/sp500_stocks.csv', index_col='Date')[['Symbol','Close']]
+        sp500_price_df = pd.read_csv('data_provider/Datasets/sp500/sp500_index.csv', index_col='Date')
+        stocks_price_df = pd.read_csv('data_provider/Datasets/sp500/sp500_stocks.csv', index_col='Date')[['Symbol','Close']]
 
         data_dict = {}
         date_index = next(iter(stocks_price_df.groupby('Symbol')))[1].index
@@ -54,7 +54,7 @@ class SP500Dataset:
         return self.names
 
     def get_industry(self):
-        stock_info_df = pd.read_csv('Datasets/sp500/sp500_companies.csv', usecols=['Symbol','Sector'])
+        stock_info_df = pd.read_csv('data_provider/Datasets/sp500/sp500_companies.csv', usecols=['Symbol','Sector'])
         stock_info_df = stock_info_df[stock_info_df['Symbol'].isin(self.names)]
         return stock_info_df.set_index('Symbol')
     
