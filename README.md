@@ -1,5 +1,26 @@
 # Interpretable Graph-Based Stock Trading Decision System
 
+## Features
+
+1. **Probabilistic Graph Construction**: Utilizes the **Graphical Lasso (GLasso)** algorithm to probabilistically infer graphs from **multivariate time series data**. This method effectively captures the underlying structure and conditional dependencies between different stocks.
+
+2. **Robust Data Augmentation**: Incorporates **Ornstein-Uhlenbeck (OU) noise** as both **adversarial and data augmentation** technique. This approach enhances model robustness by simulating realistic financial scenarios and improving the network's resilience against noise.
+
+3. **Modular Time Series Embedders**: Modular architecture that supports various embedders for time series feature extraction
+   - 1D convolutional neural networks
+   - LSTM
+   - ... 
+
+4. **Modular GNN Architecture**: Features a modular design for the Graph Neural Network (GNN) component, allowing for interchangeable message passing layers
+   - GCN (Graph Convolutional Network)
+   - GIN (Graph Isomorphism Network)
+   - ...
+
+5. **Explainable Predictions with GNNExplainer**: Leverages the **GNNExplainer** module to provide detailed explanations of prediction results, highlighting influential factors and their contributions. This transparency aids in understanding and trusting model decisions.
+
+6. **Automated Decision Process**: Implements a fully **automated decision-making** framework that integrates data preprocessing, model training, and inference to deliver actionable trading insights. This automation streamlines the trading strategy, reducing the need for manual intervention.
+
+
 ## Instruction for Running the Experiments
 
 ### Dataset
