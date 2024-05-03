@@ -18,8 +18,9 @@
 
 5. **Explainable Predictions with GNNExplainer**: Leverages the **GNNExplainer** module to provide detailed explanations of prediction results, highlighting influential factors and their contributions. This transparency aids in understanding and trusting model decisions.
 
-6. **Automated Decision Process**: Implements a fully **automated decision-making** framework that integrates data preprocessing, model training, and inference to deliver actionable trading insights. This automation streamlines the trading strategy, reducing the need for manual intervention.
+6. **Integrated Gradients Explanation**: Employs **Integrated Gradients (IG)** to elucidate the influence of information at each timestep in a time series on the outcome. By leveraging IG, importance scores are attributed to individual timesteps, providing detailed insight into how each specific input feature contributes to the model’s prediction. 
 
+7. **Automated Decision Process**: Implements a fully **automated decision-making** framework that integrates data preprocessing, model training, and inference to deliver actionable trading insights. This automation streamlines the trading strategy, reducing the need for manual intervention.
 
 ## Instruction for Running the Experiments
 
