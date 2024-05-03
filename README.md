@@ -16,7 +16,7 @@
    - GIN (Graph Isomorphism Network)
    - ...
 
-5. **Explainable Predictions with GNNExplainer**: Leverages the **GNNExplainer** module to provide detailed explanations of prediction results, highlighting influential factors and their contributions. This transparency aids in understanding and trusting model decisions.
+5. **Attribution Analysis**: Leverages the **GNNExplainer** module to provide detailed explanations of prediction results, highlighting influential factors and their contributions. This transparency aids in understanding and trusting model decisions.
 
 6. **Integrated Gradients Explanation**: Employs **Integrated Gradients (IG)** to elucidate the influence of information at each timestep in a time series on the outcome. By leveraging IG, importance scores are attributed to individual timesteps, providing detailed insight into how each specific input feature contributes to the model’s prediction. 
 
@@ -56,6 +56,7 @@ The main files are:
 
 - `train.ipynb`: Main script to run the experiment, including constructing graph, analyzing sparsity, training graph neural networks, and explaining the output. 
 - `dataset_analysis.ipynb`: Script to analyze the dataset, including trend plot, stationarity test, stationarization using log differencing, correlation matrix, mutual information and time lagged analysis.
+- `agent.ipynb`: Script to show the usage of automated decision process where, by initializing an agent from the Agent class, the agent will provide valuable insights on your selected stock, including predicted price, estimated average return rate and volatility, attribution analysis and hedging suggestions. 
 
 ### Running Locally
 
