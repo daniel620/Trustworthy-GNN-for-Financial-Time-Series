@@ -1,6 +1,6 @@
 import torch
 
-def integrated_gradients(input, edge_index, baseline, model, steps=50, batch_size_index=0, node_index=0):
+def integrated_gradients(input, edge_index, baseline, model, steps=50, node_index=0):
     input = input.clone().detach().requires_grad_(True)
     baseline = baseline.clone().detach()
 
@@ -13,9 +13,9 @@ def integrated_gradients(input, edge_index, baseline, model, steps=50, batch_siz
         inp.requires_grad_(True)
         with torch.autograd.set_grad_enabled(True):
             output = model(inp, edge_index)
-            target_score = output[batch_size_index, node_index] # target score at the node of interest
-            grads.append(torch.autograd.grad(target_score, inp)[0][batch_size_index])
+            target_score = output[node_index] # target score at the node of interest
+            grads.append(torch.autograd.grad(target_score, inp)[0])
 
     avg_grads = torch.stack(grads).mean(dim=0)
-    integrated_grad = (input - baseline)[batch_size_index, node_index] * avg_grads  # element-wise multiplication
+    integrated_grad = (input - baseline)[node_index] * avg_grads  # element-wise multiplication
     return integrated_grad
