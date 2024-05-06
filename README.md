@@ -1,5 +1,3 @@
-# Interpretable Graph-Based Stock Trading Decision System
-
 ## Features
 
 1. **Probabilistic Graph Construction**: Utilizes the **Graphical Lasso (GLasso)** algorithm to probabilistically infer graphs from **multivariate time series data**. This method effectively captures the underlying structure and conditional dependencies between different stocks.
